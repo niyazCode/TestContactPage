@@ -8,7 +8,7 @@ namespace TestContactPage.StepDefinitions
     public class ValidatingContactSectionInCodafitApplicationStepDefinitions
     {
         WebDriver driver = new ChromeDriver();
-        
+
         [Given(@"the user launching the Codafit app")]
         public void GivenTheUserLaunchingTheCodafitApp()
         {
@@ -32,7 +32,7 @@ namespace TestContactPage.StepDefinitions
                     IWebElement con = driver.FindElement(By.XPath("//span[text()='Get in Touch']"));
                     ((IJavaScriptExecutor)driver)
                  .ExecuteScript("arguments[0].scrollIntoView(true);", con);
-                    con.Click();                    
+                    con.Click();
                     break;
             }
         }
@@ -62,7 +62,7 @@ namespace TestContactPage.StepDefinitions
             Thread.Sleep(6000);
             String pageTitle = driver.Title;
             Assert.AreEqual(pageTitle, "Let's talk business - Codafit");
-        }        
+        }
 
         [Then(@"verify the error message in the contact form")]
         public void ThenVerifyErrorMessageInContactForm()
@@ -71,8 +71,8 @@ namespace TestContactPage.StepDefinitions
             ((IJavaScriptExecutor)driver)
          .ExecuteScript("arguments[0].scrollIntoView(true);", errorMsg);
             String text = errorMsg.Text;
-             Assert.AreEqual(text, "Please fill in the required field.");
-           
+            Assert.AreEqual(text, "Please fill in the required field.");
+
         }
 
         [AfterScenario("TestRun1")]
